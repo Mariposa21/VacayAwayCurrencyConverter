@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% load static %}
+
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="{% static 'Converter/style.css' %}">
+    {% endblock %} 
+</head>
+
+<body>
+  <h1 class="h1">Welcome to the Vacay Away Currency Converter!</h1>
+  {% block content %}
+  {% endblock %}
+</body>

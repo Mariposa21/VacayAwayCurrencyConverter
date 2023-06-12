@@ -1,0 +1,24 @@
+html {
+    height: 100%;
+}
+body {
+    background-color:#303234
+}
+form {
+    text-align : center;
+    color : whitesmoke
+}
+p {
+    font-family : "Monaco"; 
+    color: whitesmoke; 
+}
+h1 {
+    text-align : center;
+    font-family: "Arial"; 
+    color: whitesmoke; 
+}
+h4 {
+    text-align : center;
+    font-family: "Arial"; 
+    color: whitesmoke; 
+}
