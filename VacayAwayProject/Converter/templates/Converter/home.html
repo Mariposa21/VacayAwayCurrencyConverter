@@ -1,0 +1,38 @@
+{% extends "Converter/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<form action="{% url 'home' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <t>{{ vacay_form.as_table}}</t>
+    <p class="p">---------------------------------------</p>
+    <table>
+    <th>
+        <h4>Category</h4>
+        <h4>Origin Country Dollar Amount</h4>
+    </th>
+    {% for i in forms.items %}
+    <tr>
+    {% for field in i.1 %}
+    {% if field.label == "CostCategory" %}
+    {% for key, newValue in costCategoryValues %}
+    {% if field.value == key %}
+        <input type="hidden" id="costCategory" name="costCategory" value="{{ key }}">
+        {{ newValue }}
+    {% endif %}
+    {% endfor %}
+    {{ name }}
+    {% elif field.label == "OriginCostAmount" %}
+    {{ field }}
+    {% endif %}
+    </tr>
+    {% endfor %}
+    <br>
+    {% endfor %}
+    </table>
+    <br>
+    <input type="submit" value = "Submit">
+</form>
+
+{% endblock %}

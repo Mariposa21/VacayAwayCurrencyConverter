@@ -1,0 +1,32 @@
+{% extends "Converter/base.html" %}
+
+{% block content %}
+
+{% csrf_token %}
+<h4>Vacay Away Currency Results</h4>
+<p class="p">Country of Origin: {{vacationContext.countryOrigin}}    Country of Arrival: {{vacationContext.countryArrival}}</p>
+<p class="p">Latest Conversion Rate: {{vacationContext.latestConversionRate}}</p>
+<p class="p">---------------------------------------</p>
+    <table>
+    <th>
+        <h4>Category</h4>
+        <h4>Origin Country Dollar Amount</h4>
+        <h4>Arrival Country Dollar Amount</h4>
+    </th>
+    {% for i in costCategoryList.items %}
+    <tr>
+    {% for key, newValue in costCategoryValues %}
+    {% if i.1.costCategory == key %}
+        {{ newValue }}
+    {% endif %}
+    {% endfor %}
+    {{ i.1.originCostAmount }}
+    {{ i.1.arrivalCostAmount }}
+    </tr>
+    <br>
+    {% endfor %}
+    </table>
+    <br>
+    <input type="submit" value = "Submit">
+
+{% endblock %}
