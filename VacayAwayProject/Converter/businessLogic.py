@@ -2,7 +2,6 @@ from .models import *
 import datetime
 from alpha_vantage.foreignexchange import ForeignExchange
 from dateutil.relativedelta import relativedelta
-# AlphaVantage API key: 
 
 def manageAlphaAdvantageAPICall(vacationForm): 
     currentTimestamp = datetime.datetime.now()

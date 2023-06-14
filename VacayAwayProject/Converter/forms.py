@@ -13,16 +13,18 @@ class VacationForm(forms.ModelForm):
             attrs={
                 'class': "form-control",
                 'style': 'max-width: 300px;',
-                'label': 'DepartureCountry', 
                 'display' : 'inline'
             }))
         countryArrival = forms.CharField(
             widget=forms.TextInput(
             attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;',
-                'label': 'ArrivalCountry', 
+                'style': 'max-width: 300px;'
             }))
+        labels = {
+            'countryOrigin' : 'Country of Departure', 
+            'countryArrival' : 'Country of Arrival'
+        }
 
 class CostCategoryForm(forms.ModelForm): 
   class Meta: 

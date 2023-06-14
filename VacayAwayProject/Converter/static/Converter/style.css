@@ -2,15 +2,17 @@ html {
     height: 100%;
 }
 body {
-    background-color:#303234
+    background-color: black
 }
 form {
     text-align : center;
-    color : whitesmoke
+    color : whitesmoke; 
+    font-family: "Tahoma"
 }
 p {
-    font-family : "Monaco"; 
+    font-family : "Tahoma"; 
     color: whitesmoke; 
+    text-align: center;
 }
 h1 {
     text-align : center;
@@ -19,6 +21,28 @@ h1 {
 }
 h4 {
     text-align : center;
-    font-family: "Arial"; 
+    font-family: "Tahoma"; 
     color: whitesmoke; 
+}
+.centeredTable {
+    margin: 0px auto; 
+    text-align: left;
+}
+th
+{
+   border-bottom: 2px solid whitesmoke;
+}
+.returnedTable {
+    text-align : center;
+    color : whitesmoke
+}
+.formSubmitButton {
+	background: #3700b3;
+	color: whitesmoke;
+    border: none; 
+	height: 50px;
+	width: 100px;
+	font: bold15px tahoma,sans-serif;
+	text-shadow: none;
+    border-radius: 15px;
 }

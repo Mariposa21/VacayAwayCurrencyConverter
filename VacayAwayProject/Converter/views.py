@@ -51,6 +51,7 @@ def home(request):
 def converterResult(request, pk):
     vacationforEval = Vacation.objects.filter(vacationId=pk)[0]
     costCategoryList = CostCategory.objects.filter(vacation=vacationforEval)
+    totalArrivalCostAmount = Decimal(0.00)
 
     costCategoryListContext = {}
     for costCategoryItem in costCategoryList: 
@@ -60,11 +61,13 @@ def converterResult(request, pk):
             'arrivalCostAmount' : costCategoryItem.arrivalCostAmount
         }
         costCategoryListContext[costCategoryItem.costCategory+'_result'] = costCategoryResult
+        totalArrivalCostAmount = costCategoryItem.arrivalCostAmount + totalArrivalCostAmount
 
     context = { 
         'vacationContext': vacationforEval, 
         'costCategoryList': costCategoryListContext, 
-        'costCategoryValues': CostCategory.COST_CATEGORIES
+        'costCategoryValues': CostCategory.COST_CATEGORIES, 
+        'totalArrivalCostAmount': totalArrivalCostAmount
     }
         
     return render(request, 'Converter/converterResult.html', context)

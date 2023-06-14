@@ -3,30 +3,36 @@
 {% block content %}
 
 {% csrf_token %}
+
 <h4>Vacay Away Currency Results</h4>
 <p class="p">Country of Origin: {{vacationContext.countryOrigin}}    Country of Arrival: {{vacationContext.countryArrival}}</p>
 <p class="p">Latest Conversion Rate: {{vacationContext.latestConversionRate}}</p>
 <p class="p">---------------------------------------</p>
-    <table>
-    <th>
-        <h4>Category</h4>
-        <h4>Origin Country Dollar Amount</h4>
-        <h4>Arrival Country Dollar Amount</h4>
-    </th>
+<container class="returnedTable">
+    <table class="centeredTable">
+    <thead>
+    <tr>
+        <th>Category</th>
+        <th>Origin Country Dollar Amount</th>
+        <th>Arrival Country Dollar Amount</th>
+    </tr>
+    </thead>
     {% for i in costCategoryList.items %}
+    <tbody>
     <tr>
     {% for key, newValue in costCategoryValues %}
     {% if i.1.costCategory == key %}
-        {{ newValue }}
+        <td>{{ newValue }}</td>
     {% endif %}
     {% endfor %}
-    {{ i.1.originCostAmount }}
-    {{ i.1.arrivalCostAmount }}
+    <td>{{ i.1.originCostAmount }}</td>
+    <td>{{ i.1.arrivalCostAmount }}</td>
     </tr>
-    <br>
     {% endfor %}
+    </tbody>
     </table>
+</container>
     <br>
-    <input type="submit" value = "Submit">
-
+    <p class="p">---------------------------------------</p>
+    <p class="p">Total budget in {{vacationContext.countryArrival}} currency: {{totalArrivalCostAmount}}</p>
 {% endblock %}
