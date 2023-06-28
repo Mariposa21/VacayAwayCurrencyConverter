@@ -10,8 +10,8 @@ def manageAlphaAdvantageAPICall(vacationForm):
     vacationVariable.originCurrency = vacationForm.cleaned_data['countryOrigin']
     vacationVariable.arrivalCurrency = vacationForm.cleaned_data['countryArrival']
     ##vacationVariable.conversionFee = vacationForm.cleaned_data['conversionFee']
-    originCurrency = vacationVariable.countryOrigin
-    arrivalCurrency = vacationVariable.countryArrival
+    originCurrency = vacationVariable.originCurrency
+    arrivalCurrency = vacationVariable.arrivalCurrency
 
     try:
         conversionRateCurrencyObj = conversionRateCurrency.objects.get(asOfDate=currentTimestampDate, countryOrigin=originCurrency, countryArrival=arrivalCurrency)
@@ -24,11 +24,9 @@ def manageAlphaAdvantageAPICall(vacationForm):
 def callAlphaAdvantageAPI(vacation, currentTimestampDate): 
     apiKey = ''
     AV_Calls = ForeignExchange(key=apiKey)
-    originCurrency = vacation.countryOrigin 
-    arrivalCurrency = vacation.countryArrival
 
     #this is the actual AlphaVantage API call 
-    exchangeData, metadata = AV_Calls.get_currency_exchange_monthly(originCurrency, arrivalCurrency, outputsize='compact')
+    exchangeData, metadata = AV_Calls.get_currency_exchange_monthly(vacation.originCurrency, vacation.arrivalCurrency, outputsize='compact')
     for key, value in sorted(exchangeData.items()):
         date = datetime.datetime.strptime(key, '%Y-%m-%d')
         dateTrimmed = date.date()
@@ -39,8 +37,8 @@ def callAlphaAdvantageAPI(vacation, currentTimestampDate):
     conversionRateCurrencyObj = conversionRateCurrency()
     conversionRateCurrencyObj.asOfDate = currentTimestampDate
     conversionRateCurrencyObj.exchangeRate = vacation.latestConversionRate
-    conversionRateCurrencyObj.countryOrigin = originCurrency
-    conversionRateCurrencyObj.countryArrival = arrivalCurrency
+    conversionRateCurrencyObj.countryOrigin = vacation.originCurrency
+    conversionRateCurrencyObj.countryArrival = vacation.arrivalCurrency
     conversionRateCurrencyObj.save()
 
     return vacation

@@ -7,7 +7,7 @@ body {
 form {
     text-align : center;
     color : whitesmoke; 
-    font-family: "Tahoma"
+    font-family: "Tahoma"; 
 }
 p {
     font-family : "Tahoma"; 
@@ -34,7 +34,8 @@ th
 }
 .returnedTable {
     text-align : center;
-    color : whitesmoke
+    color : whitesmoke; 
+    font-family: "Tahoma"; 
 }
 .formSubmitButton {
 	background: #3700b3;
@@ -46,3 +47,45 @@ th
 	text-shadow: none;
     border-radius: 15px;
 }
+.logoBackgroundCircle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
+    border-style: solid;
+    border-width: 10px;
+    border-color: purple;
+    background-color: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: url('photos/ParadisePhoto.jpg');
+  }
+.logoTextOne {
+    color: black; 
+    font-size: 12px; 
+    text-align: center; 
+    font-family: "Arial"; 
+}
+.logoTextTwo {
+    color: black; 
+    font-size: 10px; 
+    text-align: center; 
+    font-family: "Arial"; 
+}
+.footerContainer {
+    display: block;
+    text-align: center;
+}
+.footerCircle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; 
+    border-color: purple;
+    background-color: purple;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+  }
