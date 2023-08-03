@@ -5,7 +5,9 @@ When I plan out a vacation in a destination that does not use American currency,
 As a potential solution, the VacayAwayCurrencyConverter was created via the Django framework, primarily coded in Python.
 
 ## Project Screenshare: 
-[![Vacay Away Currency Converter Screenshare](https://github.com/Mariposa21/VacayAwayCurrencyConverter/assets/90941845/475d6c02-c62c-46de-bc01-77570c5d0875)]
+<div align="center" style="display: flex; flex-direction: row;">
+ <video class="video" src="https://github.com/Mariposa21/VacayAwayCurrencyConverter/assets/90941845/475d6c02-c62c-46de-bc01-77570c5d0875" />
+</div>
 
 ## Project Tech Stack: 
 1. Django Framework Python Project.
